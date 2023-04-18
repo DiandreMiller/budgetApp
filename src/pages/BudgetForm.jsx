@@ -3,10 +3,13 @@
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate, useParams } from "react-router-dom"
+import { v4 as uuidv4 } from 'uuid';
+
+
 
 const BudgetForm = () => {
     const [create, setCreate] = useState({
-        id: '',
+        id: uuidv4(),
         itemName: '',
         amount: 0,
         date: '',
@@ -24,20 +27,21 @@ const BudgetForm = () => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        axios.post(`${process.env.REACT_APP_BACKEND_API}`, create)
+       e.preventDefault()
+   
+        axios.post(`${process.env.REACT_APP_BACKEND_API}/budget`, create)
             .then(() => {
-            navigate('/budget')
+               navigate('/budget')
+               console.log('this code is being reach')
             })
             .catch(error => console.log(error))
-        
-
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-            <div>
+             <div>
+                <h1>Create New</h1>
                  <label>Item</label>
                     <br/>
                  <input type="text" name="itemName" id="itemName"

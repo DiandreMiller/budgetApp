@@ -1,8 +1,15 @@
-import NewItem from "../pages/NewItem"
+import NewItem from "../components/NewItem"
+import EditButton from "../components/EditButton"
+import ViewAllButton from "../components/ViewAllButton"
+
+
 
 const NavBar = () => {
     return (
-        <NewItem/>
+        <div>
+            <ViewAllButton/>
+            <NewItem />
+        </div>
     )
 }
 
