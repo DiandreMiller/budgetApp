@@ -26,9 +26,7 @@ const EditForm = () => {
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BACKEND_API}/budget/${index}`)
             .then((response) => {
-                // const financeEdit = response.data.filter(item => item.id === id)[0]
                 setEdit(response.data)
-                console.log('is this the correct data?',response.data)
         })
     }, [])
 

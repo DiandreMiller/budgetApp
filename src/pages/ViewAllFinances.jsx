@@ -18,7 +18,7 @@ const ViewAllFinances = () => {
             <Link to={`/budget/finance/${index}`}>
                 <h2>Item: {finance.itemName}</h2>
             </Link>
-                     <p>Finance: ${finance.amount}</p>
+                     <p>Finance: ${finance.amount.toLocaleString()}</p>
                      <p>Date: {finance.date}</p>
                      <p>Finance: {finance.from}</p>
                      <p>Category: {finance.category}</p>

@@ -5,32 +5,21 @@
 
 import { useNavigate} from "react-router-dom"
 
-
 const NewItem = () => {
-
-    
 
     const navigate = useNavigate()
     const handleSubmit = (e) => {
         e.preventDefault()
         navigate('/budget/new')
-
-
     }
 
     return (
         <div>
-            
             <form onSubmit={handleSubmit}>
-
-                
-
                 <button>New</button>
-
             </form>
         </div>
     )
-
 }
 
 export default NewItem

@@ -11,17 +11,15 @@ const FinanceDetail = () => {
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_BACKEND_API}/budget/${index}`)
       .then((response) => {
-        // const financeItem = response.data.filter(item => item.id === id)[0];
         setFinance(response.data);
-        console.log(response.data)
       })
       .catch((error) => console.log(error));
   }, []);
 
   return (
     <div>
-      {/* {finance ? (
-        <> */}
+      {finance ? (
+        <>
           <h1>{finance.itemName}</h1>
           <p>Amount: {finance.amount}</p>
           <p>Date: {finance.date}</p>
@@ -31,12 +29,10 @@ const FinanceDetail = () => {
             <EditButton />
           </Link>
           <DeleteButton/>
-       
-      {/* // ) : ( */}
-        {/* // <p>Loading...</p> */}
-      {/* ) */}
-      {/* } */}
-
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 };

@@ -6,16 +6,19 @@ const DeleteButton = () => {
   const navigate = useNavigate();
 
   const handleDelete = () => {
-    axios
-      .delete(`${process.env.REACT_APP_BACKEND_API}/budget/${index}`)
-      .then(() => {
-        console.log("the delete has worked");
+
+    const confirmDelete = window.confirm("Are you sure you want to delete this item?");
+
+    if (confirmDelete) {
+      axios
+        .delete(`${process.env.REACT_APP_BACKEND_API}/budget/${index}`)
+        .then(() => {
         
         
-      })
-      .catch((error) => console.log(error));
+        })
+        .catch((error) => console.log(error));
       navigate("/budget/viewAllFinances");
-      
+    }
   };
 
   return (

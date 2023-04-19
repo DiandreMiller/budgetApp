@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -29,7 +29,6 @@ const BudgetForm = () => {
       axios.get(`${process.env.REACT_APP_BACKEND_API}/budget`, length)
         .then((response) => {
          setLength(response.data.length)
-           console.log(10, response.data)
      })
    }, [])
 
@@ -39,9 +38,6 @@ const BudgetForm = () => {
     
   }
 
-    
-   
-   console.log('length',length)
 
     const handleSubmit = (e) => {
        e.preventDefault()
@@ -49,7 +45,6 @@ const BudgetForm = () => {
         axios.post(`${process.env.REACT_APP_BACKEND_API}/budget`, create)
             .then(() => {
                
-               console.log('this code is being reach')
             })
            .catch(error => console.log(error))
            navigate(`/budget/finance/${length}`)
