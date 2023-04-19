@@ -13,12 +13,12 @@ const ViewAllFinances = () => {
     return (
         <div>
             <h1>Here are all your finances</h1> 
-            {allFinances.map((finance) => {
-        return <div key={finance.id}>
-            <Link to={`/budget/finance/${finance.id}`}>
+            {allFinances.map((finance, index) => {
+        return <div key={index}>
+            <Link to={`/budget/finance/${index}`}>
                 <h2>Item: {finance.itemName}</h2>
             </Link>
-                     <p>Finance: {finance.amount}</p>
+                     <p>Finance: ${finance.amount}</p>
                      <p>Date: {finance.date}</p>
                      <p>Finance: {finance.from}</p>
                      <p>Category: {finance.category}</p>

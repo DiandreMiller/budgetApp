@@ -1,11 +1,30 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const DeleteButton = () => {
-    const [deleteButton, setDeleteButton] = useState({})
-    const {id} = useParams()
-    axios.delete(`${process.env.REACT_APP_BACKEND_API}/${id}`, )
-}
+  const { index } = useParams();
+  const navigate = useNavigate();
 
-export default DeleteButton
+  const handleDelete = () => {
+    axios
+      .delete(`${process.env.REACT_APP_BACKEND_API}/budget/${index}`)
+      .then(() => {
+        console.log("the delete has worked");
+        
+        
+      })
+      .catch((error) => console.log(error));
+      navigate("/budget/viewAllFinances");
+      
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleDelete}>
+        <button>Delete</button>
+      </form>
+    </div>
+  );
+};
+
+export default DeleteButton;

@@ -1,7 +1,7 @@
 const Home = () => {
     return (
         <h1>
-            This is the home page
+            Welcome to SpendWise, the app that helps you spend your money wisely.
         </h1>
     )
 }

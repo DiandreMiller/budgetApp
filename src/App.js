@@ -23,9 +23,9 @@ function App() {
           <Route element={<Home />} path='/' />
           <Route element={<Budget />} path='/budget' />
           <Route element={<BudgetForm />} path='/budget/new' />
-          <Route element={<EditForm />} path='/budget/:id/edit' />
+          <Route element={<EditForm />} path='/budget/:index/edit' />
           <Route element={<ViewAllFinances />} path='/budget/viewAllFinances' />
-          <Route element={<FinanceDetail />} path='/budget/finance/:id' />
+          <Route element={<FinanceDetail />} path='/budget/finance/:index' />
           <Route element={<FourOFourErrorPage />} path='/*' />
           
         </Routes>

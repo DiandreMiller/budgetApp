@@ -1,6 +1,6 @@
 //make category a dropdown
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios"
 import { useNavigate, useParams } from "react-router-dom"
 import { v4 as uuidv4 } from 'uuid';
@@ -8,6 +8,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const BudgetForm = () => {
+   
+   const [length, setLength] = useState([])
+   
     const [create, setCreate] = useState({
         id: uuidv4(),
         itemName: '',
@@ -18,23 +21,38 @@ const BudgetForm = () => {
     })
 
     const navigate = useNavigate()
-    const { id } = useParams()
+   
     
-    const handleChange = (e) => {
-        const { id, value } = e.target
-        setCreate(previousState => ({...previousState, [id]: value}))
+   
+   
+   useEffect(() => {
+      axios.get(`${process.env.REACT_APP_BACKEND_API}/budget`, length)
+        .then((response) => {
+         setLength(response.data.length)
+           console.log(10, response.data)
+     })
+   }, [])
 
-    }
+   const handleChange = (e) => {
+      const { id, value } = e.target
+      setCreate(previousState => ({...previousState, [id]: value}))
+    
+  }
+
+    
+   
+   console.log('length',length)
 
     const handleSubmit = (e) => {
        e.preventDefault()
    
         axios.post(`${process.env.REACT_APP_BACKEND_API}/budget`, create)
             .then(() => {
-               navigate('/budget')
+               
                console.log('this code is being reach')
             })
-            .catch(error => console.log(error))
+           .catch(error => console.log(error))
+           navigate(`/budget/finance/${length}`)
     }
 
     return (
@@ -58,7 +76,7 @@ const BudgetForm = () => {
             <div>
                  <label>Date</label>
                     <br/>
-                 <input type="text" name="date" id="date"
+                 <input type="date" name="date" id="date"
                     required value={create.date} onChange={handleChange} />
             </div>
             

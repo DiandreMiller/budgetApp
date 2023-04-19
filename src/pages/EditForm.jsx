@@ -2,42 +2,55 @@ import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 const EditForm = () => {
 
-    const navigate = useNavigate()
+    
     const [edit, setEdit] = useState({
-        id: '',
+        id: uuidv4(),
         itemName: '',
         amount: 0,
         date: '',
         from: '',
         category: ''
     })
-    const { id } = useParams()
+
+    const navigate = useNavigate()
+    const { index } = useParams()
     
 
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_BACKEND_API}/budget/${id}`, edit)
+        axios.get(`${process.env.REACT_APP_BACKEND_API}/budget/${index}`)
             .then((response) => {
-                const financeEdit = response.data.filter(item => item.id === id)[0]
-                setEdit(financeEdit)
+                // const financeEdit = response.data.filter(item => item.id === id)[0]
+                setEdit(response.data)
                 console.log('is this the correct data?',response.data)
         })
     }, [])
 
 
     const handleChange = (e) => {
-        setEdit({ ...edit, itemName: e.target.value });
-      };
+        const { name, value } = e.target;
+        setEdit({ ...edit, [name]: value });
+    };
+    
       
     
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        navigate('/budget/')
+        axios.put(`${process.env.REACT_APP_BACKEND_API}/budget/${index}`, edit)
+            .then((response) => {
+                console.log(response.data)
+                
+            })
+            
+            .catch(error => console.log(error))
+            navigate('/budget/viewAllFinances')
     }
 
     return (
@@ -64,7 +77,7 @@ const EditForm = () => {
             <div>
                  <label>Date</label>
                     <br/>
-                 <input type="text" name="date" id="date"
+                 <input type="date" name="date" id="date"
                     required value={edit.date} onChange={handleChange} />
             </div>
             
@@ -83,6 +96,7 @@ const EditForm = () => {
             </div>
             
                 <button>Submit</button>
+                
     
 
             </form>

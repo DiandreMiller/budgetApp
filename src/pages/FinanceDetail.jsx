@@ -2,37 +2,41 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import EditButton from "../components/EditButton";
+import DeleteButton from "../components/DeleteButton";
 
 const FinanceDetail = () => {
-  const [finance, setFinance] = useState(null);
-  const { id } = useParams();
+  const [finance, setFinance] = useState({});
+  const { index } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_BACKEND_API}/budget`)
+    axios.get(`${process.env.REACT_APP_BACKEND_API}/budget/${index}`)
       .then((response) => {
-        const financeItem = response.data.filter(item => item.id === id)[0];
-        setFinance(financeItem);
+        // const financeItem = response.data.filter(item => item.id === id)[0];
+        setFinance(response.data);
+        console.log(response.data)
       })
       .catch((error) => console.log(error));
-  }, [id]);
+  }, []);
 
   return (
     <div>
-      {finance ? (
-        <>
+      {/* {finance ? (
+        <> */}
           <h1>{finance.itemName}</h1>
           <p>Amount: {finance.amount}</p>
           <p>Date: {finance.date}</p>
           <p>From: {finance.from}</p>
           <p>Category: {finance.category}</p>
-          <Link to={`/budget/${id}/edit`}>
+          <Link to={`/budget/${index}/edit`}>
             <EditButton />
           </Link>
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+          <DeleteButton/>
+       
+      {/* // ) : ( */}
+        {/* // <p>Loading...</p> */}
+      {/* ) */}
+      {/* } */}
+
     </div>
   );
 };
