@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
+import './ViewAllFinances.css'
 
 const ViewAllFinances = () => {
     const [allFinances, setAllFinances] = useState([])
@@ -14,7 +15,7 @@ const ViewAllFinances = () => {
         <div>
             <h1>Here are all your finances</h1> 
             {allFinances.map((finance, index) => {
-        return <div key={index}>
+        return <div className="viewAll" key={index}>
             <Link to={`/budget/finance/${index}`}>
                 <h2>Item: {finance.itemName}</h2>
             </Link>

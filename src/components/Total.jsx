@@ -27,7 +27,8 @@ const Total = () => {
     return (
         <div>
 
-            <h1 style={{ color }}>Back Account Total: ${sum.toLocaleString()}</h1>
+            <h1 className="total" style={{ color }}>Back Account Total: ${sum.toLocaleString()}</h1>
+        
             
         </div>
     )

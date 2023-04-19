@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import { useNavigate} from "react-router-dom"
 import { v4 as uuidv4 } from 'uuid';
+import './BudgetForm.css'
 
 
 
@@ -51,7 +52,7 @@ const BudgetForm = () => {
     }
 
     return (
-        <div>
+        <div className="new">
             <form onSubmit={handleSubmit}>
              <div>
                 <h1>Create New</h1>

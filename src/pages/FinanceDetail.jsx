@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import EditButton from "../components/EditButton";
 import DeleteButton from "../components/DeleteButton";
+import './FinanceDetail.css'
 
 const FinanceDetail = () => {
   const [finance, setFinance] = useState({});
@@ -17,7 +18,7 @@ const FinanceDetail = () => {
   }, []);
 
   return (
-    <div>
+    <div className="individual">
       {finance ? (
         <>
           <h1>{finance.itemName}</h1>
