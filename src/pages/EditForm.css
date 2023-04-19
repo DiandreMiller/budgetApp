@@ -1,4 +1,4 @@
-.new {
+.edit{
     background: linear-gradient(to bottom, #C5E1F9, #DCECF7);
     box-shadow: -10px 10px 10px #1A3B6C;
     padding: 1rem;
@@ -6,17 +6,20 @@
     margin-left: 350px;
     margin-right: 350px;
     outline: 2px solid #39FF14;
-  }
+}
 
-  .submit{
-    background-color: #4CAF50; 
-    color: white; 
-    border: none; 
-    padding: 10px 20px; 
+.submit {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 5px; 
+    border-radius: 5px;
     margin-top: 20px;
+    box-shadow: 2px 2px 10px #666;
+    text-shadow: 1px 1px 2px #666;
   }
+  

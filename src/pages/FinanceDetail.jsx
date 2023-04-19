@@ -29,7 +29,7 @@ const FinanceDetail = () => {
           <Link to={`/budget/${index}/edit`}>
             <EditButton />
           </Link>
-          <DeleteButton/>
+          <DeleteButton className='delete-button'/>
         </>
       ) : (
         <p>Loading...</p>

@@ -4,21 +4,23 @@ nav ul {
   padding: 0;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start; /* Move items to the right */
+  justify-content: flex-start;
 }
 
 nav li {
-  margin-left: 50px;
+  margin-left: 10px;
 }
 
 nav button {
-  background-color: #4CAF50; 
-  color: white; 
-  border: none; 
-  padding: 10px 20px; 
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  border-radius: 5px; 
+  border-radius: 5px;
+  text-shadow: 2px 2px 4px #000000;
+  margin-bottom: 5px;
 }

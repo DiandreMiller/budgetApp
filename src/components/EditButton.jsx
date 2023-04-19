@@ -1,4 +1,5 @@
-import { useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import '../pages/FinanceDetail.css'
 
 
 
@@ -15,7 +16,7 @@ const EditButton = () => {
         <div>
             <form onSubmit={handleSubmit}>
 
-                <button>Edit</button>
+                <button className='edit-button'>Edit</button>
 
             </form>
         </div>

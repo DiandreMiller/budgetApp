@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import { v4 as uuidv4 } from 'uuid';
+import './EditForm.css'
 
 
 const EditForm = () => {
@@ -45,7 +46,7 @@ const EditForm = () => {
     }
 
     return (
-        <div>
+        <div className="edit">
             <form onSubmit={handleSubmit}>
                 <h1>This is the edit form</h1>
 
@@ -90,7 +91,7 @@ const EditForm = () => {
                     </select>
                 </div>
             
-                <button>Submit</button>
+                <button className="submit">Submit</button>
             </form>
         </div>
     )

@@ -16,7 +16,7 @@ const NewItem = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <button>New</button>
+                <button className="newButton">New</button>
             </form>
         </div>
     )

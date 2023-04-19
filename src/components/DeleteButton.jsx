@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import '../pages/FinanceDetail.css'
 
 const DeleteButton = () => {
   const { index } = useParams();
@@ -24,7 +25,7 @@ const DeleteButton = () => {
   return (
     <div>
       <form onSubmit={handleDelete}>
-        <button>Delete</button>
+        <button className="delete-button">Delete</button>
       </form>
     </div>
   );

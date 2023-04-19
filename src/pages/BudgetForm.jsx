@@ -90,7 +90,7 @@ const BudgetForm = () => {
                     required value={create.category} onChange={handleChange} />
             </div>
             
-                <button>Submit</button>
+                <button className='submit'>Submit</button>
                 </form>
         </div>
     )
