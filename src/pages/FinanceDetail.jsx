@@ -21,7 +21,7 @@ const FinanceDetail = () => {
       {finance ? (
         <>
           <h1>{finance.itemName}</h1>
-          <p>Amount: {finance.amount}</p>
+          <p>Amount: ${Number(finance.amount).toLocaleString()}</p>
           <p>Date: {finance.date}</p>
           <p>From: {finance.from}</p>
           <p>Category: {finance.category}</p>
