@@ -28,7 +28,7 @@ const EditForm = () => {
             .then((response) => {
                 setEdit(response.data)
         })
-    }, [])
+    }, [index])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
